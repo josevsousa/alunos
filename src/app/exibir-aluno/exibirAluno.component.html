@@ -1,0 +1,17 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{aluno?.nome}}</mat-card-title>
+        <mat-card-subtitle>CPF: {{aluno?.cpf}}</mat-card-subtitle>
+        <img mat-card-lg-image [src]="aluno?.photo" >    
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      Idade: {{aluno?.idade}}
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-button color="primary" [routerLink]="['/']">voltar</button>
+    </mat-card-actions>
+</mat-card>
+
+<app-form-aluno></app-form-aluno>

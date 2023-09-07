@@ -1,0 +1,17 @@
+
+<mat-list>  
+    <div *ngFor="let aluno of listarAlunos">
+    <mat-list-item>
+        {{aluno.nome}}, {{aluno.idade}}, RG:{{aluno.cpf}}
+        <img class="alunoFoto" [src]="aluno.photo" alt="">
+        <button mat-icon-button  [routerLink]="['/exibirAluno', aluno.id]">
+            <mat-icon>visibility</mat-icon>
+        </button>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    </div>
+</mat-list>   
+
+
+
+
