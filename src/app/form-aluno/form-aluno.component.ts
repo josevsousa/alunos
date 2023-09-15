@@ -21,7 +21,6 @@ import { AlunosService } from '../alunos.service';
 export class FormAlunoComponent {
   alunoService: AlunosService = inject(AlunosService);
 
-
   appForm = new FormGroup({
     nome: new FormControl(''),
     cpf: new FormControl('')
