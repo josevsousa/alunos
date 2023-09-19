@@ -1,24 +1,48 @@
 <!-- <se</section class="box1"> -->
-<section class="box1" >
-    <form [formGroup]="loginForm">
-    <img class="logo" src="../../assets/logo.png" alt="">
-    <section>
-        <mat-form-field  class="example-full-width">
-            <mat-label>Usuario</mat-label>
-            <input matInput formControlName="usuario">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Senha</mat-label>
-            <input matInput formControlName="senha">
-        </mat-form-field>
-    </section>
-    <button mat-raised-button color="primary" class="bt-login">Entrar</button>
-    <section class="example-warn">
-         <span> Tela de login </span>
-    </section>
-    <section>
-        <button mat-raised-button color="primary" class="example-button-width">Facebook</button>
-        <button mat-raised-button color="warn" class="example-button-width bt-d" (click)="ddd()">Google</button>
-    </section>
-    </form>
-</section>
+
+       
+             <!-- DESCONECTADO -->
+             <ng-container *ngIf="user$|async as user; else Loading">
+                <ng-container *ngIf="(user.user !== null); else Desconect">
+                    <section>
+                        <img [src]="user.user.photoURL" class="photoURL" alt="">
+                    </section>
+                    <section> 
+                        <h1>{{user.user.displayName}}</h1> </section>
+                    <section>
+                        <button mat-raised-button color="warn"  (click)="desconectarGoogle()">Desconectar</button>
+                    </section>
+                </ng-container>
+            </ng-container>
+                  
+            <!-- CONECTADO -->
+            <ng-template #Desconect>
+                <section class="box1" >
+                    <form [formGroup]="loginForm">
+                        <img class="logo" src="../../assets/logo.png" alt="">
+                        <section>
+                            <mat-form-field  class="example-full-width">
+                                <mat-label>Usuario</mat-label>
+                                <input matInput formControlName="usuario">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Senha</mat-label>
+                                <input matInput formControlName="senha">
+                            </mat-form-field>
+                        </section>
+                        <button mat-raised-button color="primary" class="bt-login">Entrar</button>
+                        <section class="example-warn">
+                            <span> Tela de login </span>
+                        </section>
+                        <section>
+                            <button mat-raised-button color="primary" class="example-button-width">Facebook</button>
+                            <button mat-raised-button color="warn" class="example-button-width bt-d" (click)="loginGoogle()">Google 
+                            </button>                 
+                        </section>
+                    </form>
+                </section>
+            </ng-template>
+                
+            <ng-template #Loading>Loading...</ng-template>    
+    
+
